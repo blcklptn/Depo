@@ -37,7 +37,7 @@ class ManageEmployees:
         except Exception as ex:
             logging.error(f'Неудача в обновлении пользователя: {ex}')
         
-    def get_by_id(self, emp_id: str) -> Union[Employees, None]:
+    def get_emp_by_id(self, emp_id: str) -> Union[Employees, None]:
         try:
             employer = session.query(Employees).filter(Employees.id == emp_id).one()
             return employer
@@ -76,7 +76,7 @@ class ManageTransport:
         except Exception as ex:
             logging.error(f'Неудача в обновлении транспорта: {ex}')
 
-    def get_by_id(self, tr_id: str) -> Union[Transport, None]:
+    def get_tr_by_id(self, tr_id: str) -> Union[Transport, None]:
         try:
             employer = session.query(Employees).filter(Employees.id == tr_id).one()
             return employer
@@ -105,7 +105,7 @@ class ManageSchedule:
         except Exception as ex:
             logging.error(f'Неудача в удалении расписания:', ex)
 
-    def get_by_id(self, sch_id: str) -> Union[Schedule, None]:
+    def get_sch_by_id(self, sch_id: str) -> Union[Schedule, None]:
         try:
             schedule = session.query(Schedule).filter(Schedule.id == sch_id).one()
             return schedule
