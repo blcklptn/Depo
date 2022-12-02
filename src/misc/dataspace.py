@@ -124,16 +124,15 @@ class Manage(ManageEmployees, ManageTransport, ManageSchedule):
     def __str__(self) -> str:
         return 'Класс объединяет все другие объекты Manage в один'
 
-
-    def drop_schedule(self):
+    def __create_xlsx(self) -> None:
         record = session.query(Schedule).all()
         create_xlsx.CreateTable().start(record)
-        
-        """
+
+    def drop_schedule(self):
         try:
+            self.__create_xlsx()
             session.query(Schedule).delete()
             session.commit()
         except Exception as ex:
             logging.error(f'Неудача в удалении расписания: {ex}')
-        """
         
