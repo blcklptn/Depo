@@ -33,15 +33,13 @@ class Schedule(Base):
 
     id = Column(Integer, primary_key=True)
     transport_id = Column(Integer)
-    before_lunch_1_emp_id = Column(Integer)
-    before_lunch_2_emp_id = Column(Integer)
 
-    after_lunch_1_emp_id = Column(Integer)
-    after_lunch_2_emp_id = Column(Integer)
+    before_lunch_1_emp_id = Column(String)
+    before_lunch_2_emp_id = Column(String)
+
+    after_lunch_1_emp_id = Column(String)
+    after_lunch_2_emp_id = Column(String)
 
     added = Column(DateTime, default=datetime.utcnow)
-
-
-    
 
 

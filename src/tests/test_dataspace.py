@@ -1,3 +1,3 @@
 from misc import dataspace
 
-print(dataspace.session)
+dataspace.Manage().drop_schedule()

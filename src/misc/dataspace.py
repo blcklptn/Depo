@@ -4,6 +4,7 @@ from sqlalchemy.exc import NoResultFound
 from core import config
 from typing import Union
 import logging
+from misc import create_xlsx
 
 session = db.create_database()
 
@@ -116,15 +117,23 @@ class ManageSchedule:
 
 
 class Manage(ManageEmployees, ManageTransport, ManageSchedule):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
+
     
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Класс объединяет все другие объекты Manage в один'
 
+
     def drop_schedule(self):
+        record = session.query(Schedule).all()
+        create_xlsx.CreateTable().start(record)
+        
+        """
         try:
             session.query(Schedule).delete()
             session.commit()
         except Exception as ex:
             logging.error(f'Неудача в удалении расписания: {ex}')
+        """
+        
