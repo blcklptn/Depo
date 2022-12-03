@@ -32,7 +32,7 @@ class Schedule(Base):
     __tablename__ = 'Schedule'
 
     id = Column(Integer, primary_key=True)
-    transport_id = Column(Integer)
+    transport_number = Column(Integer)
 
     before_lunch_1_emp_id = Column(String)
     before_lunch_2_emp_id = Column(String)
